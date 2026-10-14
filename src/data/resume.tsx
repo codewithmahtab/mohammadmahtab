@@ -16,7 +16,7 @@ export const DATA = {
   description:
     "Software Engineer and Freelancer. I love building things and turning ideas into reality.",
   summary:
-    "In 2023, I started my journey in **Computer Science and Engineering** and began exploring software development beyond the classroom. Over the past 3 years, I have participated in **50+ coding contests, competed in 10+ hackathons, built 30+ projects,** and solved **700+ coding problems** across various platforms.\n\n Last summer, I worked at **Go2X as a Full Stack Developer Intern**, where I collaborated with senior engineers and gained hands-on experience working with technologies like MERN and Next.js.\n\n**Currently, I’m building [Adowise](https://adowise.com)** — a platform designed to help creators and professionals turn their expertise into a digital business while helping businesses discover and sponsor the right talent.",
+    "In 2023, I started my journey in **Computer Science and Engineering** and began exploring software development beyond the classroom. Over the past 3 years, I have participated in **50+ coding contests, competed in 10+ hackathons, built 30+ projects,** and **solved 700+ coding problems** across various platforms.\n\n In 2025, I took my first step into the professional world as a **Full Stack Developer Intern at Go2X**, where I collaborated with senior engineers and gained hands-on experience with technologies like MERN and Next.js.\n\n**Currently, I’m building [Adowise](https://adowise.com)** — a platform designed to help creators and professionals turn their expertise into a digital business while helping businesses discover and sponsor the right talent.",
 
   avatarUrl: "/mohammad-mahtab.jpg",
 
@@ -105,7 +105,7 @@ export const DATA = {
       location: "Onsite",
       title: "Founder & CEO",
       logoUrl: "/companies/adowise.jpg",
-      start: "August 2026",
+      start: "Aug. 2026",
       end: "Present",
       description:
         "Adowise is an all-in-one platform designed to help creators & professionals turn their expertise into a digital business, while helping businesses find and sponsor the right talent.",
@@ -118,21 +118,9 @@ export const DATA = {
       title: "Full Stack Developer Intern",
       logoUrl: "/companies/go2x.png",
       start: "July 2025",
-      end: "September 2025",
+      end: "Sep. 2025",
       description:
         "Collaborated with senior engineers on full-stack projects, improving performance, scalability, and responsivenes.",
-    },
-    {
-      company: "Explorin",
-      badges: [],
-      href: "https://explorin.in",
-      location: "Onsite",
-      title: "MERN Stack Developer Intern",
-      logoUrl: "/companies/explorin.png",
-      start: "July 2024",
-      end: "August 2024",
-      description:
-        "Worked with technologies including React.js, Node.js, Express.js, MongoDB, Tailwind CSS, along with Redux and TanStack Query for state management.",
     },
   ],
 

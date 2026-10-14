@@ -25,10 +25,10 @@ export default function Navbar() {
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   className={cn(
                     buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12 cursor-pointer",
+                    "size-full rounded-full p-0 cursor-pointer",
                   )}
                 >
-                  <item.icon className="size-4" />
+                  <item.icon className="size-full" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent side="top" sideOffset={8}>
@@ -46,13 +46,15 @@ export default function Navbar() {
                 <TooltipTrigger asChild>
                   <Link
                     href={social.url}
-                    target={social.url.startsWith("http") ? "_blank" : undefined}
+                    target={
+                      social.url.startsWith("http") ? "_blank" : undefined
+                    }
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 cursor-pointer",
+                      "size-full rounded-full p-0 cursor-pointer",
                     )}
                   >
-                    <social.icon className="size-4" />
+                    <social.icon className="size-full" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent side="top" sideOffset={8}>
@@ -65,7 +67,7 @@ export default function Navbar() {
         <DockIcon>
           <Tooltip>
             <TooltipTrigger asChild>
-              <ModeToggle className="cursor-pointer" />
+              <ModeToggle className="size-full rounded-full cursor-pointer" />
             </TooltipTrigger>
             <TooltipContent side="top" sideOffset={8}>
               <p>Theme</p>

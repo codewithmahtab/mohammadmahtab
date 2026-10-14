@@ -8,27 +8,111 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Markdown from "react-markdown";
 
+import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
-  const [imageError, setImageError] = useState(false);
+function ProjectMedia({
+  video,
+  image,
+  alt,
+}: {
+  video?: string;
+  image?: string;
+  alt: string;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
-  if (!src || imageError) {
-    return <div className="w-full h-40 bg-muted" />;
-  }
+  // Lazy-load: only attach/load media when container enters or gets close to viewport
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
 
-  const isGif = src.endsWith(".gif");
+    if (typeof IntersectionObserver === "undefined") {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const isGif = image?.endsWith(".gif");
 
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={400}
-      height={160}
-      unoptimized={isGif}
-      className="w-full h-40 object-cover"
-      onError={() => setImageError(true)}
-    />
+    <div ref={containerRef} className="relative w-full h-40 overflow-hidden bg-muted/40">
+      {/* Sleek Skeleton Placeholder while video / image is buffering or waiting to load */}
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 z-10 flex flex-col justify-between p-3 bg-muted/60 dark:bg-muted/30 animate-pulse">
+          <div className="flex items-center justify-between">
+            <div className="h-3 w-16 rounded bg-muted-foreground/15" />
+            <div className="h-3 w-8 rounded-full bg-muted-foreground/15" />
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="size-8 rounded-full bg-muted-foreground/15 flex items-center justify-center">
+              <div className="size-2 rounded-full bg-muted-foreground/25 animate-ping" />
+            </div>
+          </div>
+          <div className="h-2 w-24 rounded bg-muted-foreground/15" />
+        </div>
+      )}
+
+      {hasError ? (
+        <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground bg-muted">
+          Preview unavailable
+        </div>
+      ) : video ? (
+        isInView ? (
+          <video
+            ref={videoRef}
+            src={video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            onLoadedData={() => setIsLoaded(true)}
+            onPlaying={() => setIsLoaded(true)}
+            onError={() => setHasError(true)}
+            className={cn(
+              "w-full h-40 object-cover transition-opacity duration-500",
+              isLoaded ? "opacity-100" : "opacity-0",
+            )}
+          />
+        ) : null
+      ) : image ? (
+        isInView ? (
+          <Image
+            src={image}
+            alt={alt}
+            width={400}
+            height={160}
+            unoptimized={isGif}
+            onLoad={() => setIsLoaded(true)}
+            onError={() => setHasError(true)}
+            className={cn(
+              "w-full h-40 object-cover transition-opacity duration-500",
+              isLoaded ? "opacity-100" : "opacity-0",
+            )}
+          />
+        ) : null
+      ) : (
+        <div className="w-full h-40 bg-muted" />
+      )}
+    </div>
   );
 }
 
@@ -61,14 +145,6 @@ export function ProjectCard({
   links,
   className,
 }: Props) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1.0;
-    }
-  }, [video]);
-
   return (
     <div
       className={cn(
@@ -83,21 +159,7 @@ export function ProjectCard({
           rel="noopener noreferrer"
           className="block"
         >
-          {video ? (
-            <video
-              ref={videoRef}
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-40 object-cover"
-            />
-          ) : image ? (
-            <ProjectImage src={image} alt={title} />
-          ) : (
-            <div className="w-full h-40 bg-muted" />
-          )}
+          <ProjectMedia video={video} image={image} alt={title} />
         </Link>
         {links && links.length > 0 && (
           <div className="absolute top-2 right-2 flex flex-wrap gap-2">

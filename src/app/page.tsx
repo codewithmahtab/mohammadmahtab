@@ -33,7 +33,7 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
-              <div className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted overflow-hidden relative">
+              <div className="size-28 md:size-32 rounded-full shadow-lg ring-4 ring-muted overflow-hidden relative">
                 <Image
                   src={DATA.avatarUrl}
                   alt={`${DATA.name} - Software Engineer & Founder of Adowise`}

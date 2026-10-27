@@ -111,7 +111,7 @@ export default async function Blog({
       "@type": "Person",
       name: DATA.name,
       url: DATA.url,
-      image: `${DATA.url}/mohammad-mahtab.jpg`,
+      image: `${DATA.url}/prof-pic.png`,
       sameAs: [
         "https://github.com/codewithmahtab",
         "https://www.linkedin.com/in/mohammadmahtab27/",

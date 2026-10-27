@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/icon.png",
+  },
   title: {
     default: "Mohammad Mahtab",
     template: `%s | Mohammad Mahtab`,
@@ -63,7 +66,7 @@ export const metadata: Metadata = {
     type: "profile",
     images: [
       {
-        url: `${DATA.url}/mohammad-mahtab.jpg`,
+        url: `${DATA.url}/prof-pic.png`,
         width: 800,
         height: 800,
         alt: "Mohammad Mahtab",
@@ -87,7 +90,7 @@ export const metadata: Metadata = {
       "Mohammad Mahtab is a prominent software engineer, freelancer, creator, and founder of Adowise. Pursuing a Bachelor's in Computer Science & Engineering in Dehradun, Uttarakhand.",
     card: "summary_large_image",
     creator: "@codewithmahtab",
-    images: [`${DATA.url}/mohammad-mahtab.jpg`],
+    images: [`${DATA.url}/prof-pic.png`],
   },
   verification: {
     google: "",
@@ -122,7 +125,7 @@ export default function RootLayout({
         url: DATA.url,
         image: {
           "@type": "ImageObject",
-          url: `${DATA.url}/mohammad-mahtab.jpg`,
+          url: `${DATA.url}/prof-pic.png`,
           caption: "Mohammad Mahtab — Software Engineer & Founder of Adowise",
         },
         email: `mailto:${DATA.contact.email}`,

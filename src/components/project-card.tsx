@@ -54,22 +54,20 @@ function ProjectMedia({
 
   return (
     <div ref={containerRef} className="relative w-full h-40 overflow-hidden bg-muted/40">
-      {/* Sleek Skeleton Placeholder while video / image is buffering or waiting to load */}
-      {!isLoaded && !hasError && (
-        <div className="absolute inset-0 z-10 flex flex-col justify-between p-3 bg-muted/60 dark:bg-muted/30 animate-pulse">
-          <div className="flex items-center justify-between">
-            <div className="h-3 w-16 rounded bg-muted-foreground/15" />
-            <div className="h-3 w-8 rounded-full bg-muted-foreground/15" />
-          </div>
-          <div className="flex items-center justify-center">
-            <div className="size-8 rounded-full bg-muted-foreground/15 flex items-center justify-center">
-              <div className="size-2 rounded-full bg-muted-foreground/25 animate-ping" />
-            </div>
-          </div>
-          <div className="h-2 w-24 rounded bg-muted-foreground/15" />
-        </div>
+      {/* Instant fallback/poster image: displayed immediately so users never see a blank or loading state */}
+      {image && !hasError && (
+        <Image
+          src={image}
+          alt={alt}
+          width={400}
+          height={160}
+          priority={false}
+          unoptimized={isGif}
+          className="absolute inset-0 w-full h-40 object-cover"
+        />
       )}
 
+      {/* Video layer on top: plays seamlessly and fades in once data is ready */}
       {hasError ? (
         <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground bg-muted">
           Preview unavailable
@@ -79,6 +77,7 @@ function ProjectMedia({
           <video
             ref={videoRef}
             src={video}
+            poster={image}
             autoPlay
             loop
             muted
@@ -88,30 +87,12 @@ function ProjectMedia({
             onPlaying={() => setIsLoaded(true)}
             onError={() => setHasError(true)}
             className={cn(
-              "w-full h-40 object-cover transition-opacity duration-500",
+              "relative z-10 w-full h-40 object-cover transition-opacity duration-700",
               isLoaded ? "opacity-100" : "opacity-0",
             )}
           />
         ) : null
-      ) : image ? (
-        isInView ? (
-          <Image
-            src={image}
-            alt={alt}
-            width={400}
-            height={160}
-            unoptimized={isGif}
-            onLoad={() => setIsLoaded(true)}
-            onError={() => setHasError(true)}
-            className={cn(
-              "w-full h-40 object-cover transition-opacity duration-500",
-              isLoaded ? "opacity-100" : "opacity-0",
-            )}
-          />
-        ) : null
-      ) : (
-        <div className="w-full h-40 bg-muted" />
-      )}
+      ) : null}
     </div>
   );
 }

@@ -18,7 +18,7 @@ export const DATA = {
   summary:
     "In 2023, I started my journey in **Computer Science and Engineering** and began exploring software development beyond the classroom. Over the past 3 years, I have participated in **50+ coding contests, competed in 10+ hackathons, built 30+ projects,** and **solved 700+ coding problems** across various platforms.\n\n In 2025, I took my first step into the professional world as a **Full Stack Developer Intern at Go2X**, where I collaborated with senior engineers and gained hands-on experience with technologies like MERN and Next.js.\n\n**Currently, I’m building [Adowise](https://adowise.com)** — a platform designed to help creators and professionals turn their expertise into a digital business while helping businesses discover and sponsor the right talent.",
 
-  avatarUrl: "/mohammad-mahtab.jpg",
+  avatarUrl: "/prof-pic.png",
 
   skills: [
     // Languages
@@ -149,10 +149,10 @@ export const DATA = {
       href: "http://adowise.com/",
       dates: "2026",
       active: true,
-      image: "",
+      image: "/projects/adowise-thumb.jpg",
       video: "/videos/adowise-video.mp4",
       description:
-        "Adowise is an all-in-one platform that helps creators and professionals turn their expertise into a digital business.\n\nCreators can offer 1:1 services, sell digital products and courses, host webinars, and earn through brand sponsorships.\n\nBusinesses use Adowise to run campaigns, discover creators, and manage brand sponsorships.",
+        "Adowise is a platform that helps creators and professionals turn their expertise into a digital business.\n\nCreators can offer 1:1 services, sell digital products and courses, host webinars, and earn through brand sponsorships.\n\nBusinesses use Adowise to run campaigns, discover creators, and manage brand sponsorships.",
       technologies: [
         "Next.js",
         "Redux",
@@ -174,7 +174,7 @@ export const DATA = {
       href: "https://nextshop-app-pi.vercel.app/",
       dates: "2026",
       active: true,
-      image: "",
+      image: "/projects/nextshop-thumb.jpg",
       video: "/videos/nextshop-video.mp4",
       description:
         "NextShop is a multi-vendor e-commerce marketplace, featuring three role-separated portals — Customer storefront, Seller dashboard, and Admin panel.\n\nShoppers can browse products by category, search, manage wishlists and carts, place orders, track shipments, and leave reviews.\n\nSellers get a dedicated dashboard to manage products, inventory, orders, and payments.",
@@ -222,7 +222,7 @@ export const DATA = {
       href: "https://up-gov.vercel.app/",
       dates: "2025",
       active: true,
-      image: "",
+      image: "/projects/up-gov-thumb.jpg",
       video: "/videos/up-gov.mp4",
       description:
         "A specialized Forest Crime Management Portal built for the UP Government to track, manage, and report forest-related offences like illegal felling and wildlife crimes.\n\nIt features role-based access control, secure evidence uploads, automated case assignment workflows, and comprehensive reporting dashboards for forest officers.",
@@ -240,7 +240,7 @@ export const DATA = {
       href: "https://applyoo.vercel.app/",
       dates: "2026",
       active: true,
-      image: "",
+      image: "/projects/applyoo-thumb.jpg",
       video: "/videos/applyoo.mp4",
       description:
         "Applyoo is a modern job search and recruitment platform designed to connect candidates with their dream roles and streamline the hiring process for companies.\n\nCandidates can discover opportunities through advanced search, save favorite jobs, submit applications, and leave reviews.\n\nEmployers can create company profiles, post job openings, track application statuses.",
@@ -289,7 +289,7 @@ export const DATA = {
       href: "https://foxtale-eta.vercel.app/",
       dates: "2026",
       active: true,
-      image: "",
+      image: "/projects/foxtale-thumb.jpg",
       video: "/videos/foxtale.mp4",
       description:
         "A brand website built for Foxtale, a premium organic skincare brand focused on everyday sun protection.\n\nThe site showcases their hero product — Water Gel Sunscreen SPF 50 PA++ — with rich product storytelling and customer testimonials. \n\nDesigned to reflect the brand's clean, minimal identity with fluid animations and a mobile-first layout.",

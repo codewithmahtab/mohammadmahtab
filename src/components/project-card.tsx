@@ -54,20 +54,20 @@ function ProjectMedia({
 
   return (
     <div ref={containerRef} className="relative w-full h-40 overflow-hidden bg-muted/40">
-      {/* Instant fallback/poster image: displayed immediately so users never see a blank or loading state */}
+      {/* Instant fallback/poster image: fetched eagerly so users never experience a blank delay */}
       {image && !hasError && (
         <Image
           src={image}
           alt={alt}
           width={400}
           height={160}
-          priority={false}
+          loading="eager"
           unoptimized={isGif}
           className="absolute inset-0 w-full h-40 object-cover"
         />
       )}
 
-      {/* Video layer on top: plays seamlessly and fades in once data is ready */}
+      {/* Video layer on top: plays seamlessly and fades in only once ready */}
       {hasError ? (
         <div className="w-full h-full flex items-center justify-center text-xs text-muted-foreground bg-muted">
           Preview unavailable
@@ -88,7 +88,7 @@ function ProjectMedia({
             onError={() => setHasError(true)}
             className={cn(
               "relative z-10 w-full h-40 object-cover transition-opacity duration-700",
-              isLoaded ? "opacity-100" : "opacity-0",
+              isLoaded ? "opacity-100" : "opacity-0 pointer-events-none",
             )}
           />
         ) : null

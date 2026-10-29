@@ -158,6 +158,7 @@ export default function RootLayout({
           "https://github.com/codewithmahtab",
           "https://www.linkedin.com/in/mohammadmahtab27/",
           "https://x.com/codewithmahtab",
+          "https://www.instagram.com/codewithmahtab/",
           "https://adowise.com",
         ],
         knowsAbout: [

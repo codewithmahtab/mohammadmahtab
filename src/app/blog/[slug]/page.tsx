@@ -116,6 +116,7 @@ export default async function Blog({
         "https://github.com/codewithmahtab",
         "https://www.linkedin.com/in/mohammadmahtab27/",
         "https://x.com/codewithmahtab",
+        "https://www.instagram.com/codewithmahtab/",
       ],
     },
   }).replace(/</g, "\\u003c");

@@ -88,6 +88,12 @@ export const DATA = {
         icon: Icons.x,
         navbar: true,
       },
+      Instagram: {
+        name: "Instagram",
+        url: "https://www.instagram.com/codewithmahtab/",
+        icon: Icons.instagram,
+        navbar: true,
+      },
       Resume: {
         name: "Resume",
         url: "https://drive.google.com/file/d/1PPblwH1R2inNHOT67ZaQIFJIJuSVqsVA/view?usp=sharing",

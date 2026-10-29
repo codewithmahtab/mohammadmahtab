@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     images: [`${DATA.url}/prof-pic.png`],
   },
   verification: {
-    google: "",
+    google: "76nP5oOKPSkSIB-wVF1Ht_vvAHilMhkztGPEZrxHopM",
     yandex: "",
   },
 };

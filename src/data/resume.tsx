@@ -92,7 +92,7 @@ export const DATA = {
         name: "Instagram",
         url: "https://www.instagram.com/codewithmahtab/",
         icon: Icons.instagram,
-        navbar: true,
+        navbar: false,
       },
       Resume: {
         name: "Resume",
